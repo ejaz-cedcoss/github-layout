@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 const Layout: FC = () => {
   let navigate = useNavigate();
   
-
   const menu = [
     {
       id: "dashboard",
@@ -21,7 +20,6 @@ const Layout: FC = () => {
       icon: <GitHub />,
     },
   ];
-
   const onchange = (e: any) => {
     navigate(`${e.path}`);
   };
