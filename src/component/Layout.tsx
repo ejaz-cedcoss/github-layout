@@ -1,17 +1,17 @@
 import { Button, Sidebar, Topbar } from "@cedcommerce/ounce-ui";
-import { MenuI } from "@cedcommerce/ounce-ui/dist/components/Sidebar/Sidebar";
-import React, { FC, useEffect } from "react";
+import React, { FC, useState,  } from "react";
 import { GitHub } from "react-feather";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Layout: FC = () => {
   let navigate = useNavigate();
+  let location = useLocation();
   
   const menu = [
     {
       id: "dashboard",
       content: "Dashboard",
-      path: "/",
+      path: "/dashboard",
     },
     {
       id: "Github Access",
@@ -35,7 +35,6 @@ const Layout: FC = () => {
                 length="fullBtn"
                 type="Plain"
                 halign="Start"
-                // icon={<User size={20} />}
               >
                 Profile
               </Button>
@@ -43,7 +42,6 @@ const Layout: FC = () => {
                 length="fullBtn"
                 type="Plain"
                 halign="Start"
-                // icon={<Settings size={20} />}
               >
                 Settings
               </Button>
@@ -51,7 +49,6 @@ const Layout: FC = () => {
                 length="fullBtn"
                 type="Plain"
                 halign="Start"
-                // icon={<LogOut size={20} />}
               >
                 Logout
               </Button>
@@ -61,6 +58,7 @@ const Layout: FC = () => {
       />
       <Sidebar
         menu={menu}
+        path={location.pathname}
         subMenu={[]}
         onChange={(e) => {
           onchange(e);
